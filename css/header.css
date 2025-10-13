@@ -1,0 +1,102 @@
+/* 🌟 Navbar Base */
+.custom-navbar {
+  background: rgba(10, 10, 10, 0.95); /* translucent dark */
+  /* padding: 16px 32px; */
+
+  top: 0;
+  left: 0;
+  width: 100%;
+
+}
+
+/* 🌟 Logo */
+.logo-img {
+  height: 55px;
+  object-fit: contain;
+  filter: brightness(1.2) contrast(1.1);
+  transition: transform 0.3s ease;
+}
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+/* 🌟 Navbar links */
+.nav-link {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #eaeaea !important;
+  letter-spacing: 0.6px;
+  transition: color 0.3s ease, transform 0.25s ease;
+  position: relative;
+  /* padding: 10px 6px; */
+}
+
+/* Hover effect - Neon Purple */
+.nav-link:hover {
+  color: #d633ff !important;
+  transform: translateY(-2px);
+}
+
+/* Underline Animation */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #d633ff, #ff4ecd);
+  bottom: -6px;
+  left: 0;
+  transition: width 0.3s ease;
+  border-radius: 3px;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* 🌟 Active link (current page) */
+.nav-link.active {
+  color: #d633ff !important;
+}
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Navbar items spacing */
+.navbar-nav {
+  gap: 2.5rem;
+}
+
+/* 🌟 Mobile nav */
+@media (max-width: 768px) {
+  .navbar-nav {
+    gap: 1.2rem;
+    padding: 14px;
+    background: #111;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(214, 51, 255, 0.3);
+  }
+  .nav-link {
+    font-size: 1.05rem;
+  }
+}
+/* 🌟 Navbar Toggler */
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.toggler-icon {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #eaeaea; /* light so visible on dark navbar */
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}

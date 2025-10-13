@@ -1,0 +1,123 @@
+/* 🌟 Modal Base */
+.modal-content {
+  border-radius: 16px;
+  border: none;
+  background: #fff; /* clean white base */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  animation: fadeIn 0.4s ease-out;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  z-index: 1000;
+}
+
+/* Header */
+.modal-header {
+  border-bottom: none;
+  background: linear-gradient(90deg, #2194e0, #3f33e7);
+  color: #fff;
+  padding: 1rem 1.25rem;
+}
+.modal-title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+/* Body */
+.modal-body {
+  padding: 1.8rem;
+}
+
+/* Already Registered Message */
+#alreadyRegisteredMessage {
+  background: #f8f9fa;
+  border: 1px solid #20c997;
+  border-radius: 10px;
+  padding: 1rem;
+  color: #333;
+}
+#alreadyRegisteredMessage h6 {
+  color: #20c997;
+  font-weight: 600;
+}
+#alreadyRegisteredMessage span {
+  color: #000 !important;
+  font-weight: 500;
+}
+
+/* Labels + Inputs */
+#registerModal label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  display: block;
+  font-size: 0.95rem;
+}
+#registerModal .form-control {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #333;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+#registerModal .form-control::placeholder {
+  color: #888;
+}
+#registerModal .form-control:focus {
+  border-color: #3f33e7;
+  box-shadow: 0 0 6px rgba(63, 51, 231, 0.3);
+  outline: none;
+}
+
+/* File Upload Container */
+#uploadFieldsContainer {
+  padding: 1rem;
+  border: 2px dashed #d6d6d6;
+  border-radius: 12px;
+  background: #fafafa;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Footer */
+.modal-footer {
+  border-top: none;
+  padding: 1rem 1.5rem;
+}
+
+/* Buttons */
+#registerModal .btn-primary {
+  background: linear-gradient(90deg, #2194e0, #3f33e7);
+  border: none;
+  font-weight: 600;
+  padding: 0.6rem 1.4rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  color: #fff;
+}
+#registerModal .btn-primary:hover {
+  box-shadow: 0 0 12px rgba(63, 51, 231, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+#registerModal .form-label {
+  font-weight: 600;
+  color: #333;
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+#registerModal.form-label i {
+  font-size: 1rem;
+}

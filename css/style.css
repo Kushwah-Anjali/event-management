@@ -1,0 +1,688 @@
+/* 💅 Base Reset */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* 🌟 HERO SECTION */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  isolation: isolate;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Background Image (clear without pink overlay) */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../index.jpg.webp") center/cover no-repeat fixed;
+  transform: scale(1);
+  transition: transform 12s ease;
+  z-index: -3;
+}
+.hero-section:hover::before {
+  transform: scale(1.1); /* slow zoom effect */
+}
+
+/* Just a subtle dark overlay (for readability, no pink) */
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35); /* only light black shade */
+  z-index: -2;
+}
+
+/* 🌟 TEXT STYLING */
+.hero-caption {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 600;
+  color: #ec4899;
+  margin-bottom: 12px;
+  letter-spacing: 3px;
+  opacity: 0;
+  animation: fadeIn 1.2s ease forwards 0.2s;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, #ec4899, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  animation: fadeUp 1.5s ease forwards 0.5s;
+}
+
+.hero-subcaption {
+  font-size: clamp(0.9rem, 2.2vw, 1.3rem);
+  color: #e5e7eb;
+  margin: 15px 0 30px;
+  font-weight: 400;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards 0.8s;
+}
+
+/* 🌟 BUTTON */
+.hero-btn {
+  padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 34px);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, #ec4899, #8b5cf6);
+  border-radius: 35px;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.4s ease;
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
+  opacity: 0;
+  animation: fadeIn 2s ease forwards 1.2s;
+}
+.hero-btn:hover {
+  background: linear-gradient(90deg, #8b5cf6, #ec4899);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 40px rgba(236, 72, 153, 0.8);
+}
+/* Section */
+.welcome-area {
+  padding: 100px 8%;
+  background: #0d0d4d;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Left Content */
+.welcome-text {
+  flex: 1 1 450px;
+  max-width: 550px;
+  animation: fadeInLeft 1s ease-in-out;
+}
+.welcome-text h6 {
+  color: #ff0099;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+.welcome-text h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+.welcome-text p {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+/* 🌟 ANIMATIONS */
+@keyframes fadeUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.events-section {
+  position: relative;
+  background: url("../3.jpg");
+  background-repeat: round;
+  overflow: hidden;
+  background-size: cover;
+  z-index: 1;
+}
+
+/* 🌈 Overlay */
+.events-section::after {
+  content: "";
+  position: absolute;
+  background: #c63fa4;
+  background-image: linear-gradient(120deg, #505add 0%, #df42b1 100%);
+  opacity: 0.9;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* Alerts & Layout Fix */
+#alertContainer {
+  margin-top: 70px;
+}
+
+/* 🎥 Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 🎴 Event Card */
+.card-event {
+  position: relative;
+  height: 340px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeInUp 0.8s ease both;
+}
+.card-event:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* 📷 Image */
+.card-event .event-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s ease;
+}
+.card-event:hover .event-img {
+  transform: scale(1.15);
+}
+
+/* 🌈 Overlay */
+.card-event .overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 18px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.05) 70%
+  );
+  color: #fff;
+  z-index: 2;
+}
+
+/* 📝 Title */
+.event-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fefefe;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  transition: color 0.3s ease;
+}
+.card-event:hover .event-title {
+  color: #ffcd39;
+}
+
+/* 📖 Description */
+.event-desc {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+/* 📅 Date Circle Badge */
+.event-date {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  backdrop-filter: blur(6px);
+  background: black;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 3;
+}
+.date-highlight {
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* 🔘 Register Floating Button */
+.btn-register {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  background: cornsilk;
+  border: none;
+  color: darkblue;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  z-index: 3;
+}
+.btn-register:hover {
+  background: linear-gradient(135deg, #d6006a, #5b21b6);
+  transform: scale(1.12);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+}
+
+/* ✨ Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive */
+
+
+
+/* Button */
+.btn-started {
+  display: inline-block;
+  padding: 14px 30px;
+  background: linear-gradient(90deg, #ff0099, #8e2de2);
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.btn-started:hover {
+  opacity: 0.95;
+  transform: translateY(-4px);
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 🌟 Feedback Section */
+.feedback-section {
+  background: #0d0d2d; /* Dark like hero */
+  padding: 100px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.feedback-section .section-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.feedback-section .section-subtitle {
+  font-size: 1.1rem;
+  color: #bbb;
+  margin-bottom: 55px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 🌟 Wrapper */
+.feedback-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* 🌟 Feedback Card */
+.feedback-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.feedback-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(168, 165, 168, 0.199);
+}
+
+.feedback-text {
+  font-style: italic;
+  color: black;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* 🌟 User */
+.feedback-user {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 2px solid white;
+  object-fit: cover;
+}
+
+.feedback-user h4 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #fff;
+}
+.feedback-user span {
+  font-size: 0.9rem;
+  color: blue;
+}
+
+.filter-heading {
+  font-size: 3rem; /* Big size */
+  font-weight: 900; /* Extra bold */
+  color: cornsilk; /* Bright blue (change as needed) */
+  text-transform: uppercase; /* Makes it professional */
+  letter-spacing: 1.5px; /* Spacing for modern look */
+  margin-bottom: 30px;
+  position: relative;
+}
+
+#eventFilters button {
+  background: #ff0099;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  padding: 12px 22px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;/* ==================== Events Section ==================== */
+.events-section {
+  background: #0d0d4d; /* dark background for professional look */
+  padding: 80px 20px;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+}
+
+.events-filter-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.filter-heading {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: cornsilk;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 30px;
+}
+
+/* Filter Buttons */
+.events-filter-section .btn {
+  background: linear-gradient(90deg, #ff0099, #8e2de2);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  min-width: 140px;
+  margin: 5px;
+}
+.events-filter-section .btn:hover {
+  transform: translateY(-4px);
+  opacity: 0.95;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* ==================== Event Card ==================== */
+.card-event {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 350px;
+  background: #111;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeInUp 0.8s ease both;
+}
+.card-event:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Event Image */
+.card-event .event-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.card-event:hover .event-img {
+  transform: scale(1.15);
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0,0,0,0.05) 70%);
+  color: #fff;
+  z-index: 2;
+}
+
+/* Title */
+.event-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  transition: color 0.3s ease;
+}
+.card-event:hover .event-title {
+  color: #ffcd39;
+}
+
+/* Description */
+.event-desc {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+/* Date Circle Badge */
+.event-date {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  backdrop-filter: blur(6px);
+  background: black;
+  border: 2px solid rgba(255,255,255,0.4);
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 3;
+}
+.date-highlight {
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Register Floating Button */
+.btn-register {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  background: cornsilk;
+  color: darkblue;
+  border: none;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+  z-index: 3;
+}
+.btn-register:hover {
+  background: linear-gradient(135deg, #d6006a, #5b21b6);
+  transform: scale(1.12);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .events-section { padding: 60px 15px; }
+  .filter-heading { font-size: 2rem; }
+  .card-event { height: 300px; }
+}
+@media (max-width: 480px) {
+  .filter-heading { font-size: 1.7rem; }
+  .card-event { height: 280px; }
+  .btn-register { width: 48px; height: 48px; font-size: 1rem; }
+}
+
+  min-width: 150px;
+  height: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect */
+#eventFilters button:hover {
+  opacity: 0.95;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon Style */
+#eventFilters button i {
+  margin-right: 8px;
+  font-size: 16px;
+}

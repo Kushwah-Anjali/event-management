@@ -1,0 +1,187 @@
+/* 🌟 Body & Container */
+body {
+
+  background: #151853;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.content-box {
+  backdrop-filter: blur(12px);
+  background: #fff; /* white glass card style */
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* 🌟 Headings */
+.user-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #505add;
+}
+.user-email {
+  font-size: 0.95rem;
+  color: #505add;
+}
+
+/* 🌟 Toolbar */
+.toolbar {
+  background: rgba(236,72,153,0.05);
+  padding: 12px 18px;
+  border-radius: 12px;
+  box-shadow: inset 0 1px 5px rgba(0,0,0,0.05);
+}
+
+.update-btn{
+  margin-bottom: 10px;
+}
+.history-btn{
+  margin-bottom:10px;
+  color: black;
+ 
+}
+/* 🌟 Buttons */
+.btn-warning {
+  background: linear-gradient(90deg, #ec4899, #8b5cf6);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+.btn-warning:hover {
+  background: linear-gradient(90deg, #8b5cf6, #ec4899);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 12px rgba(236, 72, 153, 0.8);
+}
+
+.btn-danger {
+  background: #ef4444;
+  border: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+.btn-danger:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+/* 🌟 Table */
+#eventsTable {
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  font-size: 14px;
+  width: 100%;
+}
+
+#eventsTable th {
+  padding: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+  background: #505add;
+  color: #fff;
+ }
+
+#eventsTable tbody tr {
+  background: rgba(236,72,153,0.05);
+  /* border-radius: 12px; */
+  transition: all 0.25s ease;
+}
+#eventsTable tbody tr:hover {
+  background: rgba(236,72,153,0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+#eventsTable td {
+  background: rgba(236,72,153,0.05); 
+  padding: 12px 14px;
+  vertical-align: middle;
+  /* border-radius: 8px; */
+}
+
+#eventsTable img {
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* 🌟 Pagination */
+.pagination .page-item .page-link {
+  border-radius: 30px;
+  margin: 0 4px;
+  padding: 6px 14px;
+  border: none;
+  background: rgba(80, 90, 221, 0.1);
+  color: #151853;
+  transition: all 0.2s ease;
+}
+.pagination .page-item.active .page-link {
+  background: linear-gradient(90deg, #ec4899, #8b5cf6);
+  color: #fff;
+  font-weight: 600;
+}
+.pagination .page-item .page-link:hover {
+  background: rgba(80, 90, 221, 0.2);
+}
+
+/* Rows per page */
+#rowsPerPage {
+  background: #fff;
+  color: #151853;
+  border-radius: 8px;
+  padding: 4px 10px;
+  border: 1px solid #ced4da;
+  transition: all 0.3s ease;
+}
+#rowsPerPage:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.15rem rgba(13,110,253,0.25);
+}
+
+/* Search Box */
+#searchBox {
+  border-radius: 0 8px 8px 0; /* round right side only */
+  border: 1px solid #ced4da;
+  border-left: 0; /* no double border with icon */
+  transition: all 0.3s ease;
+}
+
+#searchBox:focus {
+  box-shadow: 0 0 0 0.15rem rgba(13,110,253,0.25);
+  border-color: #0d6efd;
+}
+
+.input-group-text {
+  border-radius: 8px 0 0 8px;
+  border: 1px solid #ced4da;
+  border-right: 0;
+}
+
+/* Placeholder color */
+#searchBox::placeholder {
+  color: #888;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 10px;
+  }
+  #rowsPerPage, .input-group {
+    width: 100% !important;
+  }
+}
+
+
+  /* optional: make the date cell slightly muted */
+  tr.past-row td:nth-child(5) {
+    color: #b02a37; /* Bootstrap danger tone */
+  font-style: italic;
+  font-weight: 900;
+  font-size: 0.7rem;
+  }
