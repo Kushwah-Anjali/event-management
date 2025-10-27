@@ -8,32 +8,28 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <!-- 🌟 HERO SECTION -->
-<section class="hero-section d-flex align-items-center">
-  <div class="container text-center">
+<section class="hero-section d-flex flex-column justify-content-center align-items-center text-center vh-100">
+  <div class="container">
     <p class="hero-caption">Celebrate • Connect • Create</p>
     <h1 class="hero-title">Your Event, Your Way</h1>
     <p class="hero-subcaption">Discover, Experience, and Make Memories</p>
-    <a href="#event-section" class="hero-btn">Explore Events</a>
+    <a href="#event-section" class="btn hero-btn mt-3">Explore Events</a>
   </div>
 </section>
 
-<section class="welcome-area">
-  <!-- Left Content -->
-  <div class="welcome-text">
-    <h6>WELCOME TO</h6>
-    <h1>EVENT MANAGEMENT</h1>
-    <p>
-      Manage, plan, and organize your events seamlessly.
-      From college fests to workshops and hackathons,
-      everything in one place – simple, modern, and efficient.
-    </p>
-    <a href="./includes/contact.php" class="btn-started">Contact US →</a>
-  </div>
-
-  <!-- Right Content -->
-  <div class="welcome-image">
-    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
-
+<section class="welcome-area py-5 text-light" style="background-color:#0d0d4d;">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-6">
+        <h6 class="text-uppercase text-pink fw-semibold">Welcome To</h6>
+        <h1 class="fw-bold">Event Management</h1>
+        <p>Manage, plan, and organize your events seamlessly</p>
+        <a href="./includes/contact.php" class="btn btn-started mt-3">Contact Us →</a>
+      </div>
+      <div class="col-lg-6 text-center">
+        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Event" class="img-fluid rounded-3 shadow-lg">
+      </div>
+    </div>
   </div>
 </section>
 
@@ -92,57 +88,53 @@
     </div>
   </div>
 </section>
-<!-- 🌟 Customer Feedback Section -->
-<section id="feedback" class="feedback-section">
+<section class="feedback-section py-5 text-light text-center" style="background-color:#0d0d2d;">
   <div class="container">
-    <h2 class="section-title">💬What Our Customers Say</h2>
-    <p class="section-subtitle">Real experiences from people who trusted us with their events</p>
-
-    <div class="feedback-wrapper">
-      <!-- Feedback Card 1 -->
-      <div class="feedback-card">
-        <div class="feedback-text">
-          "Amazing experience! The team managed everything smoothly and the event went beyond expectations."
-        </div>
-        <div class="feedback-user">
-          <img src="https://i.pravatar.cc/80?img=12" alt="User 1" class="user-img">
-          <div>
-            <h4>Rohit Sharma</h4>
-            <span>Corporate Client</span>
+    <h2 class="section-title mb-3">💬 What Our Customers Say</h2>
+    <p class="section-subtitle mb-5">Real experiences from people who trusted us with their events</p>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="feedback-card h-100 p-4 rounded-4 shadow-lg bg-white text-dark">
+          <p class="feedback-text">"Amazing experience! The team managed everything smoothly and the event went beyond expectations." </p>
+          <div class="d-flex align-items-center mt-3">
+            <img src="https://i.pravatar.cc/80?img=12" class="rounded-circle me-3" width="55" height="55">
+            <div>
+              <h5 class="mb-0">Rohit Sharma</h5>
+              <small class="text-primary">Corporate Client</small>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- Feedback Card 2 -->
-      <div class="feedback-card">
-        <div class="feedback-text">
-          "Very professional and supportive. I loved how they customized everything for our college fest."
-        </div>
-        <div class="feedback-user">
-          <img src="https://i.pravatar.cc/80?img=32" alt="User 2" class="user-img">
-          <div>
-            <h4>Anjali Mehta</h4>
-            <span>College Event</span>
+      <div class="col-md-4">
+        <div class="feedback-card h-100 p-4 rounded-4 shadow-lg bg-white text-dark">
+          <p class="feedback-text">"Very professional and supportive. I loved how they customized everything for our college fest."
+          </p>
+          <div class="d-flex align-items-center mt-3">
+            <img src="https://i.pravatar.cc/80?img=32" class="rounded-circle me-3" width="55" height="55">
+            <div>
+              <h5 class="mb-0">Anjali Mehta</h5>
+              <small class="text-primary">College Event</small>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- Feedback Card 3 -->
-      <div class="feedback-card">
-        <div class="feedback-text">
-          "Top-notch service and great coordination. Highly recommend for weddings and private functions."
-        </div>
-        <div class="feedback-user">
-          <img src="https://i.pravatar.cc/80?img=44" alt="User 3" class="user-img">
-          <div>
-            <h4>Rahul Verma</h4>
-            <span>Wedding Client</span>
+      <div class="col-md-4">
+        <div class="feedback-card h-100 p-4 rounded-4 shadow-lg bg-white text-dark">
+          <p class="feedback-text"> "Top-notch service and great coordination. Highly recommend for weddings and private functions."
+          </p>
+          <div class="d-flex align-items-center mt-3">
+            <img src="https://i.pravatar.cc/80?img=44" class="rounded-circle me-3" width="55" height="55">
+            <div>
+              <h5 class="mb-0">Rahul Verma</h5>
+              <small class="text-primary">Wedding Client</small>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 
 
 <?php include 'includes/register.php' ?>

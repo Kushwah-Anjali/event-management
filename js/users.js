@@ -1,36 +1,35 @@
-
+// ================================
+// Load Users
+// ================================
 async function loadUsers() {
   try {
-    // Fetch users from backend
     const res = await fetch("../api/eventApi.php?action=getuserstable");
     const data = await res.json();
-
-    // Get table body
-    const tbody = document.querySelector("#userTable tbody");
-    tbody.innerHTML = ""; // Clear existing rows
+    const tbody = document.querySelector("#userTableBody");
+    tbody.innerHTML = "";
 
     if (data.status === "success") {
-      // Loop through each user
       data.result.forEach((user, index) => {
-        // <-- index added
-        // Skip root user
         if (user.role === "root" || user.email === "root@yourdomain.com")
           return;
 
-        // Create table row with Serial Number, Edit & Delete buttons
         const row = `
           <tr>
-            <td>${index}</td> <!-- Serial Number -->
-                <td>${user.name}</td>
+            <td>${index + 1}</td>
+            <td>${user.name}</td>
             <td>${user.email}</td>
-        
             <td>
-              <!-- Edit and Delete Buttons with Font Awesome -->
-              <button class="edit-btn btn-neon" data-id="${user.id}" data-name="${user.name}" data-email="${user.email}">
-                <i class="fas fa-edit"></i>
+              <button class="btn btn-sm btn-outline-primary edit-btn me-2" 
+                data-id="${user.id}" 
+                data-name="${user.name}" 
+                data-email="${user.email}" 
+                data-bs-toggle="tooltip" title="Edit">
+                <i class="bi bi-pencil-square"></i>
               </button>
-              <button class="delete-btn btn-neon" data-id="${user.id}">
-                <i class="fas fa-trash-alt"></i>
+              <button class="btn btn-sm btn-outline-danger delete-btn" 
+                data-id="${user.id}" 
+                data-bs-toggle="tooltip" title="Delete">
+                <i class="bi bi-trash3-fill"></i>
               </button>
             </td>
           </tr>
@@ -38,7 +37,7 @@ async function loadUsers() {
         tbody.insertAdjacentHTML("beforeend", row);
       });
     } else {
-      Swal.fire("⚠️ Error", data.message, "warning"); // Alert if no users found
+      tbody.innerHTML = `<tr><td colspan="4" class="text-center text-muted py-3">No users found</td></tr>`;
     }
   } catch (err) {
     console.error("Error:", err);
@@ -46,34 +45,38 @@ async function loadUsers() {
   }
 }
 
-const userModal = document.getElementById("userModal");
+// ================================
+// Modal Elements
+// ================================
 const userForm = document.getElementById("userForm");
-const addUserBtn = document.getElementById("addUserBtn");
-const closeModalBtn = document.getElementById("closeModal");
-const modalTitle = document.getElementById("modalTitle");
+const userModalEl = document.getElementById("userModal");
+const modalTitle = document.getElementById("userModalLabel");
 const userIdInput = document.getElementById("userId");
 const userNameInput = document.getElementById("userName");
 const userEmailInput = document.getElementById("userEmail");
 const userPasswordInput = document.getElementById("userPassword");
 
-// Open Add User Modal
-addUserBtn.addEventListener("click", () => {
+// Bootstrap modal instance
+const userModal = new bootstrap.Modal(userModalEl);
+
+// ================================
+// Add User Modal
+// ================================
+document.getElementById("addUserBtn").addEventListener("click", () => {
   modalTitle.textContent = "Add User";
   userIdInput.value = "";
   userNameInput.value = "";
   userEmailInput.value = "";
   userPasswordInput.value = "";
-  userModal.style.display = "block";
+  userModal.show();
 });
 
-// Close Modal
-closeModalBtn.addEventListener("click", () => {
-  userModal.style.display = "none";
-});
-
+// ================================
 // Handle Form Submission
+// ================================
 userForm.addEventListener("submit", async (e) => {
   e.preventDefault();
+
   const formData = new FormData(userForm);
   const action = userIdInput.value ? "updateUser" : "addUser";
 
@@ -92,7 +95,7 @@ userForm.addEventListener("submit", async (e) => {
     );
 
     if (data.status === "success") {
-      userModal.style.display = "none";
+      userModal.hide();
       userForm.reset();
       loadUsers();
     }
@@ -101,12 +104,11 @@ userForm.addEventListener("submit", async (e) => {
     Swal.fire("⚠️ Error", "Something went wrong!", "error");
   }
 });
-// ================================
-// EVENT DELEGATION FOR EDIT & DELETE
-// ================================
-const tbody = document.querySelector("#userTable tbody");
 
-tbody.addEventListener("click", async (e) => {
+// ================================
+// Edit & Delete Delegation
+// ================================
+document.querySelector("#userTableBody").addEventListener("click", async (e) => {
   const editBtn = e.target.closest(".edit-btn");
   const deleteBtn = e.target.closest(".delete-btn");
 
@@ -117,7 +119,7 @@ tbody.addEventListener("click", async (e) => {
     userNameInput.value = editBtn.dataset.name;
     userEmailInput.value = editBtn.dataset.email;
     userPasswordInput.value = "";
-    userModal.style.display = "block";
+    userModal.show();
   }
 
   // -------- DELETE USER --------
@@ -147,12 +149,12 @@ tbody.addEventListener("click", async (e) => {
       const data = await res.json();
 
       Swal.fire(
-        data.status === "success" ? "✅Deleted" : "❌ Error",
+        data.status === "success" ? "✅ Deleted" : "❌ Error",
         data.message,
         data.status
       );
 
-      loadUsers(); // Reload table after deletion
+      loadUsers();
     }
   }
 });
