@@ -87,14 +87,14 @@
               <i class="bi bi-telephone-fill text-warning fs-4"></i>
               <strong>Contact:</strong>
             </div>
-            <span id="eventContact"class="aside">+91 9876543210</span>
+            <span id="eventContact"class="aside"></span>
           </div>
           <div class="col-md-6 d-flex align-items-center">
             <div class="icon-heading">
               <i class="bi bi-calendar-check-fill text-danger fs-4"></i>
               <strong>Held On:</strong>
             </div>
-            <span id="eventDate"class="aside">15 Sep 2025</span>
+            <span id="eventDate"class="aside"></span>
           </div>
 
           <div class="col-md-6 d-flex align-items-center">
@@ -102,7 +102,7 @@
               <i class="bi bi-geo-alt-fill text-info fs-4"></i>
               <strong>Venue:</strong>
             </div>
-            <span id="eventVenue" class="aside">New Delhi, India</span>
+            <span id="eventVenue" class="aside"></span>
           </div>
           <div class="col-md-6 d-flex align-items-center">
             <div class="icon-heading">

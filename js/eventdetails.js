@@ -107,65 +107,62 @@ document.addEventListener("DOMContentLoaded", () => {
           }
 
           // 🌸 Build the document checklist function
-          function buildChecklist() {
-            const checklistContainer = document.getElementById(
-              "documentChecklistContainer"
-            );
-            checklistContainer.innerHTML = "";
+         function buildChecklist() {
+  const checklistContainer = document.querySelector("#documentChecklistContainer tbody");
+  checklistContainer.innerHTML = "";
 
-            requiredDocs.forEach((doc) => {
-              const isUploaded = uploadedDocNames.includes(doc);
-              const currentFile = uploadedDocs[doc] || "";
+  requiredDocs.forEach((doc) => {
+    const isUploaded = uploadedDocNames.includes(doc);
+    const currentFile = uploadedDocs[doc] || "";
 
-              const item = document.createElement("div");
-              item.className =
-                "doc-item border rounded p-3 mb-3 bg-light shadow-sm";
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td class="text-start">
+        <div class="form-check">
+          <input class="form-check-input me-2" type="checkbox" id="doc_${doc}" ${isUploaded ? "checked" : ""}>
+          <label class="form-check-label fw-semibold" for="doc_${doc}">
+            ${doc}
+          </label>
+        </div>
+      </td>
+      <td>
+        ${
+          currentFile
+            ? `<span class="badge bg-success">Uploaded: ${currentFile}</span>`
+            : `<span class="badge bg-secondary">Pending</span>`
+        }
+      </td>
+      <td>
+        <input type="file" class="form-control d-none" name="documents[${doc}]">
+        <button type="button" class="btn ${
+          isUploaded ? "btn-warning" : "btn-outline-primary"
+        } btn-sm toggle-upload">
+          ${isUploaded ? "🔄 Update" : "⬆️ Upload"}
+        </button>
+      </td>
+    `;
 
-              item.innerHTML = `
-                <div class="d-flex justify-content-between align-items-center">
-                  <div>
-                    <input class="form-check-input me-2" type="checkbox" id="doc_${doc}" 
-                          ${isUploaded ? "checked" : ""}>
-                    <label class="form-check-label fw-semibold" for="doc_${doc}">
-                      ${doc}
-                    </label>
-                    ${
-                      currentFile
-                        ? `<span class="badge bg-success ms-2">📄 ${currentFile}</span>`
-                        : ""
-                    }
-                  </div>
-                  <div>
-                    <input type="file" class="form-control d-none" name="documents[${doc}]">
-                    <button type="button" class="btn ${
-                      isUploaded ? "btn-warning" : "btn-primary"
-                    } btn-sm toggle-upload">
-                      ${isUploaded ? "🔄 Update" : "⬆️ Upload"}
-                    </button>
-                  </div>
-                </div>
-              `;
+    checklistContainer.appendChild(row);
 
-              checklistContainer.appendChild(item);
+    const fileInput = row.querySelector("input[type=file]");
+    const btn = row.querySelector(".toggle-upload");
+    const checkbox = row.querySelector(`#doc_${doc}`);
 
-              const fileInput = item.querySelector("input[type=file]");
-              const btn = item.querySelector(".toggle-upload");
-              const checkbox = item.querySelector(`#doc_${doc}`);
+    btn.addEventListener("click", () => {
+      checkbox.checked = true;
+      fileInput.click();
+    });
 
-              btn.addEventListener("click", () => {
-                checkbox.checked = true;
-                fileInput.click();
-              });
+    fileInput.addEventListener("change", () => {
+      if (fileInput.files.length > 0) {
+        btn.textContent = "✅ Ready to Upload";
+        btn.classList.remove("btn-outline-primary", "btn-warning");
+        btn.classList.add("btn-success");
+      }
+    });
+  });
+}
 
-              fileInput.addEventListener("change", () => {
-                if (fileInput.files.length > 0) {
-                  btn.textContent = "✅ Ready to Upload";
-                  btn.classList.remove("btn-primary", "btn-warning");
-                  btn.classList.add("btn-success");
-                }
-              });
-            });
-          }
 
           // Initial build
           buildChecklist();
