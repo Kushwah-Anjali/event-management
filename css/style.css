@@ -116,6 +116,7 @@ body {
   max-width: 550px;
   animation: fadeInLeft 1s ease-in-out;
 }
+
 .welcome-text h6 {
   color: #ff0099;
   font-size: 18px;
@@ -124,18 +125,59 @@ body {
   margin-bottom: 10px;
   letter-spacing: 2px;
 }
+
 .welcome-text h1 {
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 20px;
   line-height: 1.2;
 }
+
 .welcome-text p {
   font-size: 18px;
   color: #ccc;
   margin-bottom: 30px;
   line-height: 1.7;
 }
+
+/* Right Content */
+.welcome-image {
+  flex: 1 1 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-image img {
+  width: 100%;
+  max-width: 500px; /* prevents it from blowing up */
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .welcome-area {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 5%;
+  }
+
+  .welcome-text h1 {
+    font-size: 36px;
+  }
+
+  .welcome-text p {
+    font-size: 16px;
+  }
+
+  .welcome-image img {
+    max-width: 100%;
+    margin-top: 30px;
+  }
+}
+
 /* 🌟 ANIMATIONS */
 @keyframes fadeUp {
   from {
